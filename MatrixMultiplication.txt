@@ -1,0 +1,42 @@
+
+public class MatrixMultiplication {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		long[][] matrix1 = {{1 , 4, 6}};
+		
+		long[][] matrix2 = {{2 , 3},
+				            {5 , 8},
+				            {7 , 9}};
+		
+		long[][] result = new MatrixMultiplication().multiply(matrix1, matrix2);
+		
+		for(int i = 0 ; i < result.length ; i++) {
+			for(int j = 0 ; j < result[0].length ; j++) {
+				
+				System.out.print(result[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	public long[][] multiply(long[][] matrix1 , long[][]matrix2){
+		
+		long[][] result = new long[matrix1.length][matrix2[0].length];
+		
+		for(int i = 0 ; i < matrix1.length ; i++) {
+			
+			for(int j = 0  ; j < matrix2[0].length ; j++) {
+				
+				for(int k = 0 ; k < matrix2.length ; k++) {
+					
+					result[i][j] += matrix1[i][k] * matrix2[k][j];
+				}
+			}
+		}
+		
+		return result;
+	}
+
+}
